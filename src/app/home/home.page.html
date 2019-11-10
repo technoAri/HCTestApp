@@ -1,0 +1,32 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>
+      Ionic Blank
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content id="content" style="display: block;" [scrollEvents]="true" (ionScroll)="scrollDivUp($event)" zoom="true">
+  <div class="ion-padding homepage">
+    <img (click)="clickBtn()" class="search-img" id="imgPlacement" src="/../assets/HCDemoIMGSearch.jpg"> 
+    <!-- [@changeDivSize]=currentState -->
+    
+  </div>
+  
+  <div class="icon-div" id="iconDiv">
+      <img id="imgSearch" *ngIf="isFirstImgHidden">
+      <ion-icon style="height: 20px;" name="logo-android"></ion-icon>
+      <ion-icon name="logo-angular"></ion-icon>
+      <ion-icon name="logo-apple"></ion-icon>
+      <ion-icon name="logo-facebook"></ion-icon>
+      
+      <!-- <ion-icon id="imgPlacement" *ngIf="isFirstImgHidden" name="albums"></ion-icon> -->
+    </div>
+
+  <div class="list-div" onscroll="">
+    <div class="contents-div">
+      
+    </div>
+    
+  </div>
+</ion-content>

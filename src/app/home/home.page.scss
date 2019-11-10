@@ -1,0 +1,50 @@
+.homepage {
+    //position: fixed !important;
+    //bottom: 0px !important;
+    width: 100%;
+    min-height: 220px;
+    // height: 50px;
+    position: fixed;
+}
+
+.list-div{
+    // top: 20px;
+    // bottom: 0px;
+    // background-color: aquamarine;
+    height: 530px;
+    top: 220px;
+    // background-color: blueviolet;
+    position: relative;
+    //background: gray;
+}
+
+.icon-div {
+    display: flex;
+    height: 40px;
+    justify-content: space-around;
+    align-content: flex-end;
+    // width: 80%;
+    top: 220px;
+    padding: 10px;
+    position: relative;
+    animation: dropdown 1s ease-in-out;
+}
+
+.search-img {
+    position: relative;
+    // height: 200px;
+    // width: 300px;
+    // -webkit-transition: width 0.4s ease-in-out;
+    // transition: width 0.4s ease-in-out;
+}
+
+// .search-img:hover {
+//     width: 100%;
+// }
+
+
+.contents-div {
+    height: 400px;
+    background-color: blueviolet;
+    border-radius: 10px;
+}

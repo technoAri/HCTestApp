@@ -1,0 +1,7 @@
+{
+  "name": "HCTestApp",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "angular"
+}
