@@ -29,7 +29,6 @@
     "@types/gsap": "^1.20.2",
     "cordova-android": "^8.1.0",
     "cordova-plugin-device-motion": "^2.0.1",
-    "cordova-plugin-intercom": "^8.0.0",
     "core-js": "^2.5.4",
     "gsap": "^3.0.0",
     "ionic-angular": "^3.9.9",
@@ -83,8 +82,7 @@
         "ANDROID_SUPPORT_ANNOTATIONS_VERSION": "27.+"
       },
       "cordova-plugin-ionic-keyboard": {},
-      "cordova-plugin-device-motion": {},
-      "cordova-plugin-intercom": {}
+      "cordova-plugin-device-motion": {}
     },
     "platforms": [
       "android"

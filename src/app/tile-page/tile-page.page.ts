@@ -34,8 +34,9 @@ export class TilePagePage implements OnInit  {
     console.log('RV init');
     this.ricohView = new RicohView({
       id: 'ricoh-360-viewer',
-      file: '../assets/HCDemoIMGSearch.jpg', rendererType: 0,
-      height: window.innerHeight, width: window.innerWidth, zoom: 130
+      file: '../assets/HCPanoroma.jpg', rendererType: 0,
+      orientationChange: true,
+      height: window.innerHeight, width: window.innerWidth, zoom: 130,
     });
 
     // this.ricohView = new RicohView('test');
