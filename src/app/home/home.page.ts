@@ -4,6 +4,7 @@ import { trigger, state, style, animate, transition } from '@angular/animations'
 import { Content, NavController } from 'ionic-angular';
 import { TweenLite, TweenMax } from 'gsap';
 import { Router } from '@angular/router';
+import { IonContent } from '@ionic/angular';
 // import {  Subject } from 'rxjs/Subject';
 
 @Component({
@@ -44,25 +45,22 @@ import { Router } from '@angular/router';
   ],
 })
 
-
 export class HomePage {
 
-  // @ViewChild('content', { static: false }) content: Content;
+  @ViewChild(IonContent, { static: false }) content: IonContent;
 
-  constructor(private router: Router) {}
+  constructor(private router: Router) { }
 
   // tslint:disable-next-line: use-lifecycle-interface
-  ngOnInit(){
+  ngOnInit() {
     console.log('initialized');
-    //this.router.navigateByUrl('/tile-page');
+    this.router.navigateByUrl('/tile-page');
   }
-  // ionViewDidLoad() {
-  //   console.log('ViewDidLoad');
-  // }
 
   isFirstImgHidden = false;
   positionUp: any;
   currentState = 'initial';
+  isZoomed = true;
 
   // TweenLite: TweenLite
 
@@ -71,8 +69,6 @@ export class HomePage {
     console.log(event.detail.scrollTop);
     this.positionUp = event.detail.scrollTop;
 
-    let isZoomed = false;
-
     var view = document.getElementById('content');
 
     var searchImg = document.getElementById('imgPlacement');
@@ -80,9 +76,15 @@ export class HomePage {
 
     let iconDiv = document.getElementById('iconDiv');
 
-    if(event.detail.scrollTop >= 50) {
-      let Power1: any;
-       TweenMax.to(searchImg, 0.6, {width: 40, height: 30, top: 0, left: 0});
+    if (event.detail.scrollTop >= 50) {
+      TweenMax.to(searchImg, 0.6, { width: 40, height: 30, top: 0, left: 0 });
+
+      if (this.isZoomed === true) {
+        this.content.scrollToBottom(800);
+        this.isZoomed = false;
+      }
+
+      //iconDiv.scrollTo(0, 206);
 
       //iconDiv.style.top = 216;
 
@@ -91,67 +93,48 @@ export class HomePage {
       if (event.detail.scrollTop >= 150) {
         iconDiv.style.width = '85%';
         iconDiv.style.left = '40px';
-    } 
+      }
 
-    } else if (event.detail.scrollTop < 140) {
-      //let Power1: any;
-      TweenMax.to(searchImg, 0.6, {width: 350, height: 200});
+    } else if (event.detail.scrollTop < 200) {
+      if (this.isZoomed === false) {
+        this.content.scrollToTop(800);
+        this.isZoomed = true;
+      }
+      TweenMax.to(searchImg, 0.6, { width: 350, height: 200 });
       iconDiv.style.width = '100%';
       iconDiv.style.left = '0px';
     }
 
-//     var documentElement = document.documentElement;
-  
-//   var targetPosY = event.detail.scrollTop;
+    // var documentElement = document.documentElement;
 
-//     var tweens = [
-//       TweenLite.to( document.querySelector('#imgPlacement'), 1, {css:{force3D:false, scale:.5}, paused:true}),
-//    ];
+    // //Heder height
+    // var targetPosY = 500;
 
-//    ( !! window.requestAnimationFrame) ? requestAnimationFrame(onScroll) : onScroll();
+    // var tweens = [
+    //   // tslint:disable-next-line: max-line-length
+    //   TweenMax.to(searchImg, 1, { css: { force3D: false, width: 30, height: 30}, paused: true }),
+    //   //TweenMax.to(searchImg, 1, { css: { force3D: false, width: 300, height: 200}, paused: true }),
+    // ];
 
-//     function onScroll(){
-//       console.log('scrolled');
-//       console.log(documentElement.scrollTop);
-//     //have to restrict it into range, because on OSX it can get negative values
-//     //http://bassta.bg/2013/05/restrict-a-number-to-a-range/
-//     var top =  Math.max(Math.min(window.pageYOffset || documentElement.scrollTop, targetPosY), 0); 
-//     if(top <= targetPosY){
-//         var progress = (top / targetPosY);
-//         Array.prototype.forEach.call(tweens, function(tween){
-//           tween.progress(progress);
-//         });
-//     }
-// }
+    // // window.onscroll = function (event) {
+    // (!!window.requestAnimationFrame) ? requestAnimationFrame(onScroll) : onScroll();
 
+    // // }
 
+    // function onScroll() {
 
-
-
-
-    // if(event.detail.scrollTop >= 50) {
-    //   searchImg.style.height = '80px';
-    //   searchImg.style.width = '120px';
-
-    //   // event.detail.scrollTop = 206;
-
-    //   if (event.detail.scrollTop >= 150) {
-    //     searchImg.style.height = '30px';
-    //     searchImg.style.width = '40px';
-    //     //view.scrollTo(0, 0);
-    //     iconDiv.style.width = '85%';
-    //     iconDiv.style.left = '40px';
-    // } 
-
-    // } else if (event.detail.scrollTop < 140) {
-    //   searchImg.style.height = '200px';
-    //   searchImg.style.width = '350px';
-
-    //   iconDiv.style.width = '100%';
-    //   iconDiv.style.left = '0px';
+    //   var top = event.detail.scrollTop;
+    //   if (top <= targetPosY) {
+    //     // console.log('scrolled');
+    //     var progress = (top / targetPosY);
+    //     Array.prototype.forEach.call(tweens, function (tween) {
+    //       tween.progress(progress);
+    //     });
+    //   }
     // }
+  }
 
-  }				
+
 
   clickMe() {
     console.log('clicked');
