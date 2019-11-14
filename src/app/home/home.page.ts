@@ -54,7 +54,8 @@ export class HomePage {
   // tslint:disable-next-line: use-lifecycle-interface
   ngOnInit() {
     console.log('initialized');
-    this.router.navigateByUrl('/tile-page');
+    //this.router.navigateByUrl('/tile-page');
+    this.router.navigateByUrl('/animation');
   }
 
   isFirstImgHidden = false;
