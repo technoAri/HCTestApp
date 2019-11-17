@@ -20,7 +20,6 @@ export class AppComponent {
 
   initializeApp() {
     this.platform.ready().then(() => {
-      //intercom.registerIdentifiedUser({userId: "123456"});
       this.statusBar.styleDefault();
       this.splashScreen.hide();
     });

@@ -1,59 +1,52 @@
-import { Component, OnInit } from '@angular/core';
-import script from '/Users/apple/Documents/HCTestApp/src/app/Spotlight.js';
+import { Component, OnInit, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
+import script from '../Spotlight.js';
 import { LottieModule } from 'ngx-lottie';
 
 import { AnimationItem } from 'lottie-web';
 import { AnimationOptions } from 'ngx-lottie';
 import { LottieSplashScreen } from '@ionic-native/lottie-splash-screen/ngx';
 
+import { defineCustomElements } from '@teamhive/lottie-player/loader';
+
+//defineCustomElements(window);
+
+import * as lottiee from '/Users/apple/Documents/HCTestApp/src/app/Spotlight.js';
+import { LottieAnimationViewModule } from 'ng-lottie';
+//declare var Spotlight: any;
+
 @Component({
   selector: 'app-animation',
   templateUrl: './animation.page.html',
   styleUrls: ['./animation.page.scss'],
-  //template: `<ng-lottie [options]="options" (animationCreated)="animationCreated($event)"></ng-lottie>`
+  // template: 'lottie-animation-view',
 })
 export class AnimationPage implements OnInit {
-
-  // options: AnimationOptions = {
-  //   path: '/Users/apple/Documents/HCTestApp/src/Spotlight.json'
-  // };
-
-  // animationCreated(animationItem: AnimationItem): void {
-  //   console.log(animationItem);
-  // }
-
   anim: any;
-  otherAnimations: any;
-  constructor(private lottieSplashScreen: LottieSplashScreen) { }
+  lottieConfig: any;
+  constructor() {
+    LottieAnimationViewModule.forRoot();
+
+    this.lottieConfig = {
+      path: '../assets/Spotlight.json',
+      autoplay: true,
+      loop: true
+    };
+
+    console.log(this.lottieConfig.path);
+  }
   ngOnInit() {
-    // // var animation = bodymovin.loadAnimation({
-    // //   container: document.getElementById('bm'),
-    // //   renderer: 'svg',
-    // //   loop: true,
-    // //   autoplay: true,
-    // //   path: 'data.json'
-    // // })
+    //lottiee();
+    // LottieAnimationViewModule.forRoot();
 
-    // //script.Spotlight();
-    //  this.otherAnimations = [
-    //   {
-    //     path: '../src/Spotlight.json'
-    //   }
-    // ]
-    // this.anim = this.otherAnimations;
-    //animations
-
-    this.lottieSplashScreen.show('www/lottie/animation.json', false, 100, 100);
-  //.then((res: any) => console.log(res))
-  //.catch((error: any) => console.error(error));
-  }
-
-  handleAnimation(anim) {
-    this.anim = anim;
-    this.play();
-  }
-  play() {
-    this.anim.play();
+    // this.lottieConfig = {
+    //   path: 'assets/Spotlight.json',
+    //   autoplay: true,
+    //   loop: false
+    // };
+    //script.script();
+    // defineCustomElements(window);
+    // console.log(document.getElementById('lottiee-plyr'));
+    // //this.lottieSplashScreen.show('www/lottie/animation.json', false, 100, 100);
   }
 
 }
