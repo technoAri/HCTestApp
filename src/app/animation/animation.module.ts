@@ -8,6 +8,7 @@ import { IonicModule } from '@ionic/angular';
 import { AnimationPage } from './animation.page';
 import { defineCustomElements } from '@teamhive/lottie-player/loader';
 import { LottieAnimationViewModule } from 'ng-lottie';
+import { DeviceMotion } from '@ionic-native/device-motion';
 
 defineCustomElements(window);
 

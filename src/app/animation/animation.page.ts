@@ -12,6 +12,7 @@ import { defineCustomElements } from '@teamhive/lottie-player/loader';
 
 import * as lottiee from '/Users/apple/Documents/HCTestApp/src/app/Spotlight.js';
 import { LottieAnimationViewModule } from 'ng-lottie';
+import { DeviceMotion, DeviceMotionAccelerationData } from '@ionic-native/device-motion';
 //declare var Spotlight: any;
 
 @Component({
@@ -33,9 +34,21 @@ export class AnimationPage implements OnInit {
     };
 
     console.log(this.lottieConfig.path);
+
+    // this.deviceMotion.getCurrentAcceleration().then(
+    //   (acceleration: DeviceMotionAccelerationData) => console.log(acceleration),
+    //   (error: any) => console.log(error)
+    // );
+
+    // // tslint:disable-next-line: prefer-const
+    // let subscription = this.deviceMotion.watchAcceleration().subscribe((acceleration: DeviceMotionAccelerationData) => {
+    //   console.log(acceleration);
+    // });
+
+    // subscription.unsubscribe();
   }
   ngOnInit() {
-    //lottiee();
+    //lottiee.loop();
     // LottieAnimationViewModule.forRoot();
 
     // this.lottieConfig = {

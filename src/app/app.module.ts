@@ -12,6 +12,7 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { LottieModule } from 'ngx-lottie';
 import player from 'lottie-web';
 import { LottieSplashScreen } from '@ionic-native/lottie-splash-screen/ngx';
+import { DeviceMotion } from '@ionic-native/device-motion';
 
 
 export function playerFactory() {
@@ -26,6 +27,7 @@ export function playerFactory() {
   providers: [
     StatusBar,
     SplashScreen,
+    // DeviceMotion,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
     LottieSplashScreen
   ],
