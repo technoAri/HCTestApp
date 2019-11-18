@@ -30,7 +30,7 @@ export class AnimationPage implements OnInit {
     this.lottieConfig = {
       path: '../assets/Spotlight.json',
       autoplay: true,
-      loop: true
+      loop: true,
     };
 
     console.log(this.lottieConfig.path);
