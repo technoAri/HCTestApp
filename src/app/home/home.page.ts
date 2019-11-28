@@ -55,7 +55,7 @@ export class HomePage {
   ngOnInit() {
     console.log('initialized');
     //this.router.navigateByUrl('/tile-page');
-    this.router.navigateByUrl('/animation');
+    this.router.navigateByUrl('/http');
   }
 
   isFirstImgHidden = false;
