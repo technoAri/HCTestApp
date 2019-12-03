@@ -47,21 +47,20 @@ import { IonContent } from '@ionic/angular';
 
 export class HomePage {
 
-  @ViewChild(IonContent, { static: false }) content: IonContent;
-
   constructor(private router: Router) { }
 
-  // tslint:disable-next-line: use-lifecycle-interface
-  ngOnInit() {
-    console.log('initialized');
-    //this.router.navigateByUrl('/tile-page');
-    this.router.navigateByUrl('/http');
-  }
+  @ViewChild(IonContent, { static: false }) content: IonContent;
 
   isFirstImgHidden = false;
   positionUp: any;
   currentState = 'initial';
   isZoomed = true;
+
+  // tslint:disable-next-line: use-lifecycle-interface
+  ngOnInit() {
+    console.log('initialized');
+    //this.router.navigateByUrl('/http');
+  }
 
   // TweenLite: TweenLite
 
@@ -70,12 +69,11 @@ export class HomePage {
     console.log(event.detail.scrollTop);
     this.positionUp = event.detail.scrollTop;
 
-    var view = document.getElementById('content');
+    // var view = document.getElementById('content');
+    const searchImg = document.getElementById('imgPlacement');
+    // var srImg = document.getElementById('imgSearch');
 
-    var searchImg = document.getElementById('imgPlacement');
-    var srImg = document.getElementById('imgSearch');
-
-    let iconDiv = document.getElementById('iconDiv');
+    const iconDiv = document.getElementById('iconDiv');
 
     if (event.detail.scrollTop >= 50) {
       TweenMax.to(searchImg, 0.6, { width: 40, height: 30, top: 0, left: 0 });
@@ -84,12 +82,6 @@ export class HomePage {
         this.content.scrollToBottom(800);
         this.isZoomed = false;
       }
-
-      //iconDiv.scrollTo(0, 206);
-
-      //iconDiv.style.top = 216;
-
-      // TweenMax.to(iconDiv, 0.6, {top: 216});
 
       if (event.detail.scrollTop >= 150) {
         iconDiv.style.width = '85%';

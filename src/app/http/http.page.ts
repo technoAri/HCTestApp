@@ -12,7 +12,7 @@ export class HttpPage implements OnInit {
   constructor(private http: HttpClient) {
 
     console.log(this.http.get('http://ionic.io', { }));
-    this.http.get('https://api.androidhive.info/contacts/').subscribe((response) => {
+    this.http.get('https://search-testbucket-vwbhowue52xczosi5febgublba.us-east-1.cloudsearch.amazonaws.com').subscribe((response) => {
       console.log(response);
   });
     // this.http.get('http://ionic.io', {}, {})
