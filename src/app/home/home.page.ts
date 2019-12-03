@@ -1,11 +1,9 @@
 import { Component, ViewChild } from '@angular/core';
 import { trigger, state, style, animate, transition } from '@angular/animations';
-// import { Content } from '@angular/compiler/src/render3/r3_ast';
 import { Content, NavController } from 'ionic-angular';
 import { TweenLite, TweenMax } from 'gsap';
 import { Router } from '@angular/router';
 import { IonContent } from '@ionic/angular';
-// import {  Subject } from 'rxjs/Subject';
 
 @Component({
   selector: 'app-home',
@@ -59,7 +57,7 @@ export class HomePage {
   // tslint:disable-next-line: use-lifecycle-interface
   ngOnInit() {
     console.log('initialized');
-    //this.router.navigateByUrl('/http');
+    // this.router.navigateByUrl('/http');
   }
 
   // TweenLite: TweenLite
