@@ -37,7 +37,7 @@
     "cordova-plugin-file": "^6.0.2",
     "cordova-plugin-lottie-splashscreen": "^0.7.1",
     "core-js": "^2.5.4",
-    "gsap": "^3.0.0",
+    "gsap": "^3.6.0",
     "ionic-angular": "^3.9.9",
     "lottie-web": "^5.5.9",
     "ng-animate": "^0.3.4",
